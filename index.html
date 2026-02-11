@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Step-by-Step Guide: Creating, Managing & Deleting GitHub Repositories</title>
+    <style>
+        :root {
+            --primary-accent: #6c5ce7;
+            --secondary-accent: #00d2d3;
+            --bg-gradient: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            --main-container-bg: #ffffff;
+            --dark-card-bg: #1e1b4b;
+            --text-on-white: #2d3436;
+            --text-on-dark: #f1f2f6;
+            --path-highlight: #55efc4;
+            --warning-red: #ff7675;
+            --info-blue: #0984e3;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg-gradient);
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 950px;
+            width: 100%;
+            background: var(--main-container-bg);
+            padding: 50px;
+            border-radius: 30px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+            position: relative;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        h1 {
+            color: var(--primary-accent);
+            font-size: 2.2em;
+            margin: 0;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            color: var(--text-on-white);
+            font-size: 1.1em;
+            font-weight: 500;
+            opacity: 0.8;
+            margin-top: 10px;
+        }
+
+        .nav-menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+            margin-bottom: 40px;
+        }
+
+        .nav-item {
+            background: var(--dark-card-bg);
+            padding: 12px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-on-dark);
+            font-weight: 600;
+            font-size: 0.85em;
+            text-align: center;
+            border-bottom: 4px solid var(--secondary-accent);
+            transition: all 0.3s ease;
+        }
+
+        .nav-item:hover {
+            transform: translateY(-3px);
+            background: var(--primary-accent);
+        }
+
+        .step-card {
+            background: var(--dark-card-bg);
+            margin-bottom: 25px;
+            padding: 30px;
+            border-radius: 18px;
+            color: var(--text-on-dark);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            border-right: 8px solid var(--secondary-accent);
+        }
+
+        .step-badge {
+            background: var(--secondary-accent);
+            color: #000;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.8em;
+            font-weight: 800;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .step-title {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: var(--path-highlight);
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .cmd-box {
+            background: #000;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Consolas', monospace;
+            color: #00ff00;
+            font-size: 0.95em;
+            border: 1px solid var(--path-highlight);
+            margin: 15px 0;
+            line-height: 1.5;
+            word-break: break-all;
+        }
+
+        .warning-zone {
+            background: #fff5f5;
+            border-left: 5px solid var(--warning-red);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            color: #d63031;
+        }
+
+        .info-zone {
+            background: #e1f5fe;
+            border-left: 5px solid var(--info-blue);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            color: #01579b;
+        }
+
+        .footer-tips {
+            background: #f8f9fa;
+            border-top: 4px solid var(--primary-accent);
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 20px;
+            color: var(--text-on-white);
+        }
+
+        .signature {
+            margin-top: 40px;
+            text-align: center;
+            color: #fff;
+            font-style: italic;
+            font-size: 1.1em;
+            opacity: 0.9;
+            letter-spacing: 1px;
+        }
+
+        strong { color: var(--secondary-accent); }
+        
+        @media (max-width: 600px) {
+            .container { padding: 20px; }
+            h1 { font-size: 1.6em; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>🚀 GitHub Management Master Guide</h1>
+        <p class="subtitle">Creation, Publishing, Renaming & Permanent Deletion</p>
+    </header>
+
+    <nav class="nav-menu">
+        <a href="#step1" class="nav-item">🔹 Step 1: Create</a>
+        <a href="#step2" class="nav-item">🔹 Step 2: Upload</a>
+        <a href="#step3" class="nav-item">🔹 Step 3: Publish</a>
+        <a href="#step4" class="nav-item">🔹 Step 4: Live Link</a>
+        <a href="#rename" class="nav-item">✅ Guide: Rename</a>
+        <a href="#delete" class="nav-item">❌ Guide: Delete</a>
+    </nav>
+
+    <div class="step-card" id="step1">
+        <div class="step-badge">Phase 1</div>
+        <span class="step-title">🔹 STEP 1: Create a New Repository</span>
+        <ol>
+            <li>Log in to your <strong>GitHub account</strong>.</li>
+            <li>In the top-right corner, click the <strong>“+” (plus icon)</strong> > <strong>New repository</strong>.</li>
+        </ol>
+        <p><strong>1️⃣ Repository Name:</strong> <code>how-to-make-kebab</code></p>
+        <div class="warning-zone">⚠ Lowercase only. Hyphens instead of spaces. This name forms your URL.</div>
+        <p><strong>2️⃣ Description:</strong> (Optional) Briefly describe your project.</p>
+        <p><strong>3️⃣ Repository Type:</strong> Select <strong>Public</strong>.</p>
+        <p><strong>4️⃣ Initialize:</strong> Tick <strong>✔ Add a README file</strong>.</p>
+        <p><strong>5️⃣ License:</strong> Select <strong>✔ MIT License</strong>.</p>
+        <p><strong>6️⃣ Click: ✔ Create repository</strong>.</p>
+    </div>
+
+    <div class="step-card" id="step2">
+        <div class="step-badge">Phase 2</div>
+        <span class="step-title">🔹 STEP 2: Upload Your HTML File</span>
+        <ol>
+            <li>Inside your repository, click <strong>“Add file”</strong> > <strong>“Upload files”</strong>.</li>
+            <li>Upload your file. It must be named: <code style="color:var(--path-highlight)">index.html</code>.</li>
+        </ol>
+        <div class="warning-zone">⚠ GitHub is CASE-SENSITIVE. "Index.html" will NOT work.</div>
+        <p>Scroll down and click <strong>✔ Commit changes</strong> (leave default settings).</p>
+    </div>
+
+    <div class="step-card" id="step3">
+        <div class="step-badge">Phase 3</div>
+        <span class="step-title">🔹 STEP 3: Enable GitHub Pages</span>
+        <ol>
+            <li>Click <strong>Settings</strong> (top navigation bar) > <strong>Pages</strong> (left sidebar).</li>
+            <li>Under "Build and deployment" > "Source", select <strong>GitHub Actions</strong>.</li>
+            <li>Find <strong>Static HTML</strong> and click <strong>✔ Configure</strong>.</li>
+            <li><strong>Commit the Workflow:</strong>
+                <ul>
+                    <li>On the right-hand side, click <strong>✔ Commit changes</strong>.</li>
+                    <li>A small confirmation box will appear. Click <strong>✔ Commit changes again</strong>.</li>
+                </ul>
+            </li>
+        </ol>
+        <div class="warning-zone">⚠ Do not change anything inside the workflow file.</div>
+    </div>
+
+    <div class="step-card" id="step4">
+        <div class="step-badge">Phase 4</div>
+        <span class="step-title">🔹 STEP 4 & 5: Deployment & Live Link</span>
+        <p><strong>Wait approximately 30–60 seconds</strong> for GitHub to build your page.</p>
+        
+        <h3>Find Your Live Website Link:</h3>
+        <ol>
+            <li>Go back to <strong>Settings > Pages</strong>.</li>
+            <li>At the top, you will see: <span style="color: var(--path-highlight);">"Your site is live at:"</span></li>
+        </ol>
+        <div class="cmd-box">https://yourusername.github.io/how-to-make-kebab/</div>
+    </div>
+
+    <div class="step-card" id="rename">
+        <div class="step-badge" style="background: var(--path-highlight); color: black;">Management</div>
+        <span class="step-title">✅ GUIDE 1: How to Rename a Repository</span>
+        <p>Renaming changes your URL. Your GitHub Pages link will also change.</p>
+        <p><strong>🔹 STEP 1:</strong> Go to <strong>Your repositories</strong> and select the target repo.</p>
+        <p><strong>🔹 STEP 2:</strong> Click <strong>Settings</strong> (Top navigation bar inside the repo).</p>
+        <p><strong>🔹 STEP 3:</strong> At the top, under <strong>Repository name</strong>, delete the old name and enter the new one.</p>
+        <div class="info-zone">Example: <code>best-kebab-recipe</code></div>
+        <p><strong>🔹 STEP 4:</strong> Click <strong>Rename</strong>.</p>
+        <div class="warning-zone">
+            <h4>⚠ Post-Rename Checklist:</h4>
+            <ul>
+                <li>GitHub redirects old repo links, but <strong>Pages URLs change immediately</strong>.</li>
+                <li>New Link: <code>https://username.github.io/best-kebab-recipe/</code></li>
+                <li>Update your <strong>master index.html</strong> and any external bookmarks.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="step-card" id="delete" style="border-right-color: var(--warning-red);">
+        <div class="step-badge" style="background: var(--warning-red); color: white;">Danger Zone</div>
+        <span class="step-title">❌ GUIDE 2: How to Delete a Repository</span>
+        <p>⚠ <strong>WARNING:</strong> Deleting a repository is <strong>permanent</strong> and cannot be undone.</p>
+        <p><strong>🔹 STEP 1:</strong> Enter the correct repository and click <strong>Settings</strong>.</p>
+        <p><strong>🔹 STEP 2:</strong> Scroll to the very bottom to the <strong>Danger Zone</strong>.</p>
+        <p><strong>🔹 STEP 3:</strong> Click <strong>❌ Delete this repository</strong>.</p>
+        <p><strong>🔹 STEP 4:</strong> Type the full repository name exactly as shown to confirm (e.g., <code>yourusername/repository-name</code>).</p>
+        <p><strong>🔹 STEP 5:</strong> Click <strong>❌ I understand the consequences, delete this repository</strong>.</p>
+        <div class="info-zone" style="background: #fff5f5; color: #d63031; border-left-color: #ff7675;">
+            <h4>📌 What Happens After Deleting?</h4>
+            <ul>
+                <li>All files are permanently removed.</li>
+                <li>GitHub Pages site stops working immediately.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-tips">
+        <h2 style="color: var(--primary-accent); margin-top: 0;">💡 Final Best Practices</h2>
+        <ul style="list-style: none; padding: 0;">
+            <li><strong>✔ Backup First:</strong> Before deleting, go to <strong>Code > Download ZIP</strong>.</li>
+            <li style="margin-top: 10px;"><strong>✔ Case Sensitivity:</strong> Always double-check <code>index.html</code> vs <code>Index.html</code>.</li>
+        </ul>
+    </div>
+</div>
+
+<div class="signature">
+    Crafted & Designed by Umer Malik
+</div>
+
+</body>
+</html>
